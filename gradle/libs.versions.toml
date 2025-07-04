@@ -15,7 +15,7 @@ material = "1.13.0-alpha13"
 xposed-api = "82"
 lombok = "1.18.38"
 okhttp = "5.0.0-alpha.14"
-jackson = "2.19.0"
+jackson = "2.18.2"
 
 #noinspection GradleDependency
 jackson-compatible = "2.13.5"
