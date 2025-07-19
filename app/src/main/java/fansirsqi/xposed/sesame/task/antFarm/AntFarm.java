@@ -211,7 +211,7 @@ public class AntFarm extends ModelTask {
     @Override
     public ModelFields getFields() {
         ModelFields modelFields = new ModelFields();
-        modelFields.addField(sleepTime = new StringModelField("sleepTime", "小鸡睡觉时间(关闭:-1)", "2001"));
+        modelFields.addField(sleepTime = new StringModelField("sleepTime", "小鸡睡觉时间(关闭:-1)", "-1"));
         modelFields.addField(sleepMinutes = new IntegerModelField("sleepMinutes", "小鸡睡觉时长(分钟)", 10 * 59, 1, 10 * 60));
         modelFields.addField(recallAnimalType = new ChoiceModelField("recallAnimalType", "召回小鸡", RecallAnimalType.ALWAYS, RecallAnimalType.nickNames));
         modelFields.addField(rewardFriend = new BooleanModelField("rewardFriend", "打赏好友", false));
@@ -555,13 +555,6 @@ public class AntFarm extends ModelTask {
             String sleepTimeStr = sleepTime.getValue();
             if ("-1".equals(sleepTimeStr)) {
                 Log.runtime(TAG, "当前已关闭小鸡睡觉");
-                return;
-            }
-            if ("2001".equals(sleepTimeStr)) {
-                Log.debug(TAG, "用户小鸡配置为默认配置, 开始打印配置");
-                Log.debug(TAG, "当前用户ID：" + UserMap.getCurrentUid());
-                Log.debug(Config.toSaveStr());
-                Log.debug(TAG, "当前用户：" + UserMap.getCurrentUid() + " 配置打印结束");
                 return;
             }
             Calendar now = TimeUtil.getNow();
