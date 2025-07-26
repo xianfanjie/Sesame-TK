@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import fansirsqi.xposed.sesame.entity.AlipayVersion;
@@ -760,6 +761,10 @@ public class AntForestRpcCall {
         return RequestManager.requestString("com.alipay.antieptask.finishTaskopengreen", args);
     }
 
+    public static String queryTopEnergyChallengeRanking() {
+        String args = "[{\"source\":\"chInfo_ch_appcenter__chsub_9patch\"}]";
+        return RequestManager.requestString("alipay.antforest.forest.h5.queryTopEnergyChallengeRanking", args);
+    }
 }
 
 
